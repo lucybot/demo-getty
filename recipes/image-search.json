@@ -20,8 +20,8 @@
     }]
   }, {
     "title": "Searching Images",
-    "tip": "Use the controls below to change your search query",
-    "affects": "top_stories",
+    "tip": "Use the controls below to change what kinds of images are returned",
+    "affects": "search_images",
     "inputs": [{
       "label": "Search Query",
       "type": "group",
@@ -29,6 +29,94 @@
         "name": "query",
         "label": "Query",
         "type": "text"
+      }, {
+        "name": "creativeOrEditorial",
+        "label": "Creative/Editorial",
+        "tip": "Editorial images are for non-commercial use; Creative images can be used in any context.",
+        "type": "radio",
+        "choices": [
+          {"label": "Both", "value": "both"},
+          {"label": "Creative", "value": "creative"},
+          {"label": "Editorial", "value": "editorial"}
+        ]
+      }]
+    }, {
+      "label": "People",
+      "type": "group",
+      "inputs": [{
+        "name": "specific_people",
+        "label": "Names",
+        "tip": "Names should be comma separated. Try barack_obama or lady_gaga,beyonce",
+        "type": "text"
+      }, {
+        "name": "number_of_people",
+        "label": "Number of People",
+        "type": "checkboxes",
+        "default": ["one"],
+        "choices": [
+          {"label": "None", "value": "none"},
+          {"label": "One", "value": "one"},
+          {"label": "Two", "value": "two"},
+          {"label": "Group", "value": "group"}
+        ]
+      }, {
+        "name": "ethnicity",
+        "label": "Ethnicity",
+        "tip": "Select none to include all ethnicities",
+        "type": "checkboxes",
+        "choices": [
+          {"label": "Black", "value": "black"},
+          {"label": "Caucasian", "value": "caucasian"},
+          {"label": "East Asian", "value": "east_asian"},
+          {"label": "Hispanic/Latino", "value": "hispanic_latino"},
+          {"label": "Japanese", "value": "japanese"},
+          {"label": "Middle Eastern", "value": "middle_eastern"},
+          {"label": "Multiracial Person", "value": "mixed_race_person"},
+          {"label": "Multiethnic Group", "value": "multiethnic_group"},
+          {"label": "Native American", "value": "native_american_first_nations"},
+          {"label": "Pacific Islander", "value": "pacific_islander"},
+          {"label": "South Asian", "value": "south_asian"},
+          {"label": "Southeast Asian", "value": "southeast_asian"}
+        ]
+      }]
+    }, {
+      "type": "group",
+      "label": "Image Quality",
+      "inputs": [{
+        "name": "file_types",
+        "label": "File types",
+        "type": "checkboxes",
+        "choices": [
+          {"label": ".eps", "value": "eps"},
+          {"label": ".jpg", "value": "jpg"},
+          {"label": ".gif", "value": "gif"},
+          {"label": ".png", "value": "png"}
+        ]
+      }, {
+        "name": "orientations",
+        "label": "Orientations",
+        "type": "checkboxes",
+        "choices": [
+          {"label": "Horizontal", "value": "Horizontal"},
+          {"label": "Vertical", "value": "Vertical"},
+          {"label": "Square", "value": "Square"},
+          {"label": "Panoramic Horizontal", "value": "PanoramicHorizontal"},
+          {"label": "Panoramic Vertical", "value": "PanoramicVertical"}
+        ]
+      }, {
+        "label": "Prestige only",
+        "name": "prestige_content_only",
+        "tip": "Prestige content is created by award-winning photographers and art directors and curated by our leading editors.",
+        "type": "checkbox"
+      }, {
+        "label": "Graphical Styles",
+        "name": "graphical_styles",
+        "type": "checkboxes",
+        "choices": [
+          {"label": "Fine Art", "value": "fine_art"},
+          {"label": "Illustration", "value": "illustration"},
+          {"label": "Photography", "value": "photography"}
+        ]
       }]
     }]
   }, {
