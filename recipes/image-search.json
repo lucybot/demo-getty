@@ -1,0 +1,39 @@
+{
+  "name": "image_search",
+  "title": "Getty Image Search",
+  "views": ["image_search"],
+  "actions": ["search_images"],
+  "pages": [{
+    "view": "image_search",
+    "data": {
+      "action": "search_images"
+    }
+  }],
+  "control_sets": [{
+    "title": "Authentication",
+    "tip": "Find your API key at https://developer.gettyimages.com/apps/mykeys",
+    "affects": "search_images",
+    "inputs": [{
+      "name": "apiKey",
+      "label": "API Key",
+      "type": "text"
+    }]
+  }, {
+    "title": "Searching Images",
+    "tip": "Use the controls below to change your search query",
+    "affects": "top_stories",
+    "inputs": [{
+      "label": "Search Query",
+      "type": "group",
+      "inputs": [{
+        "name": "query",
+        "label": "Query",
+        "type": "text"
+      }]
+    }]
+  }, {
+    "title": "Displaying the Results",
+    "tip": "Here's how to create a slideshow from the resulting images.",
+    "affects": "image_search"
+  }]
+}

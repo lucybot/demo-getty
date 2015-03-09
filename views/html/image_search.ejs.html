@@ -1,0 +1,72 @@
+<h2>Search Results<%- Lucy.answer('query') ? ': ' + Lucy.variable('answers.query') : '' %></h2>
+<hr>
+<%- Lucy.if('result.message') %>
+<p><%- Lucy.variable('result.message') %></p>
+<%- Lucy.fi('result.message') %>
+<%- Lucy.if('result.result_count == 0') %>
+  No results found.
+<%- Lucy.fi('result.result_count == 0') %>
+
+<%- Lucy.if('result.images') %>
+  <div class="slider">
+    <%- Lucy.for("image in result.images") %>
+      <input type="radio" name="slide_switch" id="id<%- Lucy.variable('image.id') %>"/>
+      <label class="img-label" for="id<%- Lucy.variable('image.id') %>">
+        <img src="<%- Lucy.variable("image.display_sizes[0].uri") %>" width="100"/>
+      </label>
+      <div class="show-image text-center">
+        <img src="<%- Lucy.variable("image.display_sizes[0].uri") %>"/>
+        <h4><%- Lucy.variable("image.title") %></h4>
+        <p><%- Lucy.variable("image.caption") %></p>
+      </div>
+    <%- Lucy.rof() %>
+  </div>
+<%- Lucy.fi('result.images') %>
+
+<!-- LUCYBOT_HIDE -->
+<style>
+.slider {
+  position: relative;
+  padding-top: 320px;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.75);
+}
+.show-image{
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  transition: all 0.5s;
+}
+.show-image img {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  max-height: 250px;
+  min-height: 100px;
+}
+input[name='slide_switch'] {
+  display: none;
+}
+.img-label {
+  margin: 18px 0 0 18px;
+  border: 3px solid #999;
+  float: left;
+  cursor: pointer;
+  transition: all 0.5s;
+  opacity: 0.6;
+}
+input[name='slide_switch']:checked+label {
+  border-color: #666;
+  opacity: 1;
+}
+input[name='slide_switch'] ~ .show-image {
+  opacity: 0;
+  transform: scale(1.1);
+}
+input[name='slide_switch']:checked+label+.show-image {
+  opacity: 1;
+  transform: scale(1);
+}
+</style>
+<!-- /LUCYBOT_HIDE -->
