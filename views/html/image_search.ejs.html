@@ -10,7 +10,7 @@
 <%- Lucy.if('result.images') %>
   <div class="slider">
     <%- Lucy.for("image in result.images") %>
-      <input type="radio" name="slide_switch" id="id<%- Lucy.variable('image.id') %>"/>
+      <input type="radio" name="slide_switch" id="id<%- Lucy.variable('image.id') %>" checked/>
       <label class="img-label" for="id<%- Lucy.variable('image.id') %>">
         <img src="<%- Lucy.variable("image.display_sizes[0].uri") %>" width="100"/>
       </label>

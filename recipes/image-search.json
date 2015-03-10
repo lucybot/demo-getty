@@ -1,6 +1,7 @@
 {
   "name": "image_search",
   "title": "Getty Image Search",
+  "description": "This recipe will show you how to query Getty's database of high-quality images, along with how to embed the resulting images in a webpage.",
   "views": ["image_search"],
   "actions": ["search_images"],
   "pages": [{
